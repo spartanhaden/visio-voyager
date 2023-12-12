@@ -42,3 +42,12 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
         })
         .catch(error => console.error('Error:', error));
 });
+
+
+document.getElementById('directoryPickerButton').addEventListener('click', function(){
+    fetch('/open_directory_dialog')
+    .then(response => response.json())
+    .then(data => {
+        alert('Selected folder: ' + data.folder_selected);
+    });
+});
