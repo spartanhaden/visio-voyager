@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+from typing import Optional
+import tkinter as tk
+from tkinter import filedialog
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -42,6 +45,18 @@ def search_files(term):
 @app.get("/test_images/{filename}")
 async def serve_images(filename: str):
     return FileResponse(f"test_images/{filename}")
+
+
+@app.get("/open_directory_dialog")
+def open_directory_dialog():
+    root = tk.Tk()
+    root.withdraw()  # Hide the main window
+    folder_selected = filedialog.askdirectory()  # Open the folder dialog
+    root.destroy()  # Destroy the main window
+
+    print(f"Selected folder: {folder_selected}")
+
+    return JSONResponse(content={"folder_selected": folder_selected})
 
 
 if __name__ == "__main__":

@@ -1,15 +1,31 @@
 body {
-    display: flex;
     justify-content: center;
     margin: 0;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
 }
 
-.container {
+h1 {
+    text-align: center;
+}
+
+.inputBar {
     display: flex;
-    align-items: center;
+    justify-content: center;
     padding: 20px 0;
+    /* flex-direction: column; */
+    /* width: 100%; */
+}
+
+#searchForm {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#directoryPickerButton {
+    align-self: flex-end;
+    margin: 0 10px;
 }
 
 input[type=text] {
