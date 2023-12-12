@@ -12,7 +12,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def read_root():
-    return FileResponse('templates/index.html')
+    return FileResponse('static/index.html')
 
 
 if __name__ == "__main__":
