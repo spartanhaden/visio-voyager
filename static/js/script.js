@@ -15,9 +15,29 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
     fetch('/search?term=' + encodeURIComponent(searchTerm))
         .then(response => response.json())
         .then(data => {
+            // Remove any previously displayed images
+            var imageContainer = document.getElementById('imageContainer');
+            while (imageContainer.firstChild) {
+                imageContainer.removeChild(imageContainer.firstChild);
+            }
+
+            // For each image path returned by the server...
             data.forEach(filePath => {
-                console.log(filePath);
-                // Add code here to handle each file path
+                // Create a new div element with class 'card'
+                var card = document.createElement('div');
+                card.className = 'card';
+
+                // Create a new img element
+                var img = document.createElement('img');
+
+                // Set the src attribute of the img element to the image path
+                img.src = filePath;
+
+                // Add the img element to the 'card'
+                card.appendChild(img);
+
+                // Add the 'card' to the imageContainer
+                imageContainer.appendChild(card);
             });
         })
         .catch(error => console.error('Error:', error));
