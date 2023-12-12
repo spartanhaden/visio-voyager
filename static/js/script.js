@@ -1,9 +1,15 @@
-document.getElementById('searchForm').addEventListener('submit', function (event) {
+// Get the search input field
+var searchInput = document.getElementById('search');
+
+// Automatically focus the search bar when the page loads
+searchInput.focus();
+
+document.getElementById('searchForm').addEventListener('submit', function(event) {
     // Prevent the form from being submitted in the standard way
     event.preventDefault();
 
     // Get the value from the search input field
-    var searchTerm = document.getElementById('search').value;
+    var searchTerm = searchInput.value;
 
     // Send a GET request to the /search endpoint on the server
     fetch('/search?term=' + encodeURIComponent(searchTerm))
