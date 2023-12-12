@@ -32,7 +32,16 @@ def search_files(term):
     # Prepend the directory name to the file names
     file_paths = [os.path.join("test_images", f) for f in file_paths]
 
+    # randomize the order of the files
+    import random
+    random.shuffle(file_paths)
+
     return file_paths
+
+
+@app.get("/test_images/{filename}")
+async def serve_images(filename: str):
+    return FileResponse(f"test_images/{filename}")
 
 
 if __name__ == "__main__":
