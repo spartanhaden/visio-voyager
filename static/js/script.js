@@ -31,7 +31,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
                 var img = document.createElement('img');
 
                 // Set the src attribute of the img element to the image path
-                img.src = filePath;
+                img.src = "/image" + filePath;
 
                 // Add the img element to the 'card'
                 card.appendChild(img);
