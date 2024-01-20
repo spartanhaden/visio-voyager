@@ -1,2 +1,7 @@
 fastapi
 uvicorn
+numpy
+tqdm
+open_clip_torch
+torch
+ipython
