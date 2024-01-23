@@ -54,3 +54,25 @@ document.getElementById('directoryPickerButton').addEventListener('click', funct
         alert('Selected folder: ' + data.folder_selected);
     });
 });
+
+// Dark mode
+document.addEventListener('DOMContentLoaded', (event) => {
+    const bodyElement = document.body;
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    // Check for saved user preference, if any, on page load
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        bodyElement.classList.add('dark-mode');
+    }
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener('click', () => {
+        bodyElement.classList.toggle('dark-mode');
+        // Save the user preference in localStorage
+        if (bodyElement.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+});

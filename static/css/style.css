@@ -84,3 +84,17 @@ button:hover {
 .card:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .card {
+    border-color: #333333;
+    background-color: #1e1e1e;
+}
+
+body.dark-mode button {
+    background-color: #4a76a8;
+}
