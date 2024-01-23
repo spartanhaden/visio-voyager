@@ -33,6 +33,9 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
                 // Set the src attribute of the img element to the image path
                 img.src = "/image" + filePath;
 
+                // Set the title attribute to the filePath for the tooltip
+                img.title = filePath;
+
                 // Add the img element to the 'card'
                 card.appendChild(img);
 
