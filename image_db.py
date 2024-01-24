@@ -27,9 +27,9 @@ class ImageDB:
     def load_model(self):
         start_time = time.time()
         print("loading model...")
-        self.model, _, self.preprocess = open_clip.create_model_and_transforms('ViT-bigG-14', pretrained='laion2b_s39b_b160k', device=self.device)
+        self.model, _, self.preprocess = open_clip.create_model_and_transforms('ViT-SO400M-14-SigLIP-384', pretrained='webli', device=self.device)
         print("model loaded in %0.2f seconds" % (time.time() - start_time))
-        self.tokenizer = open_clip.get_tokenizer('ViT-bigG-14')
+        self.tokenizer = open_clip.get_tokenizer('ViT-SO400M-14-SigLIP-384')
 
     def embed_string(self, query=''):
         start_time = time.time()
