@@ -91,7 +91,7 @@ class ImageDB:
         top_files = [filepath for filepath, similarity in sorted_similarities[:show_top]]
 
         for i, file in enumerate(top_files):
-            print(f"{i + 1} - sim:{sorted_similarities[i][1]:.3f}\t{file[i]}")
+            print(f"{i + 1}\t{sorted_similarities[i][1]:.3f}\t{file}")
 
         return top_files
 
