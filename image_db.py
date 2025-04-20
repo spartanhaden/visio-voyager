@@ -16,7 +16,12 @@ import numpy as np
 
 class ImageDB:
     def __init__(self):
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        if torch.cuda.is_available():
+            self.device = torch.device('cuda')
+        elif torch.backends.mps.is_available():
+            self.device = torch.device('mps')
+        else:
+            self.device = torch.device('cpu')
 
         # key is the filename and the value is the embedding
         self.data_dict = {}
